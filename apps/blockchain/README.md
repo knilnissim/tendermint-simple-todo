@@ -1,5 +1,5 @@
 # Lotion Simple Todo Blochchain
-Todo application-specified blockchain.
+Todo application-specific blockchain.
 
 ## Getting Started
 ### 👷 Install all dependencies
