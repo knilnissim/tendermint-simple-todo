@@ -1,0 +1,25 @@
+{
+  "name": "lotion-simple-todos-blockchain",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "license": "MIT",
+  "author": "knil-nissim <knilnissim@gmail.com>",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "lint": "tslint src/*.ts"
+  },
+  "dependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "lotion": "^0.1.18",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.10.0",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2"
+  }
+}

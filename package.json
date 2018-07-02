@@ -1,0 +1,15 @@
+{
+	"version": "1.0.0",
+  "main": "src/app.ts",
+  "license": "MIT",
+  "author": "knil-nissim <knilnissim@gmail.com>",
+	"scripts": {
+		"install": "npm run bootstrap",
+		"bootstrap": "lerna bootstrap",
+		"start": "lerna run --scope=lotion-simple-todos-* --stream --concurrency 2 start",
+		"lint": "lerna run --scope=lotion-simple-todos-* --stream --concurrency 1 lint"
+	},
+	"devDependencies": {
+		"lerna": "^2.11.0"
+	}
+}

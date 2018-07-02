@@ -1,0 +1,21 @@
+input {
+  zoom: 2;
+}
+
+ul {
+  display: flex;
+  flex-direction: column-reverse;
+
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+label {
+  font-size: 1.25em;
+}
