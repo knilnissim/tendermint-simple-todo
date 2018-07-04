@@ -1,11 +1,11 @@
 # Lotion Simple Todo
-The example of application-specific blockchain on the top of [Tendermint](https://tendermint.com/) using [Lotion](https://lotionjs.com)
+The example of application-specific blockchain built on the top of [Tendermint](https://tendermint.com/) using [Lotion](https://lotionjs.com)
 
 ## Apps
 
 This repository contains the following apps:
 
-- **[Blockhain](apps/blockchain)** - Todo application-specific blockchain.
+- **[Blockchain](apps/blockchain)** - Todo application-specific blockchain.
 - **[Web App](apps/webapp)** - Todo web application.
 
 ## Getting Started

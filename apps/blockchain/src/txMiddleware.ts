@@ -39,12 +39,12 @@ const toggle: TxHandler<{ index: number }> = (state, { payload }) => {
 /**
  * creates txMiddleware which is routing txHandler
  * @param txTypeToHandler plain object of txHandler(s) for txType
- * @param defaultHandler txHandler for unhandled tx
+ * @param fallbackHandler txHandler for unhandled tx
  */
-const createTxMiddleware = (txTypeToHandler: TxTypeToHandler, defaultHandler?: TxHandler): TxHandler =>
+const createTxMiddleware = (txTypeToHandler: TxTypeToHandler, fallbackHandler?: TxHandler): TxHandler =>
   (state, tx, chainInfo) => {
     const txType = tx.type;
-    const handler = txTypeToHandler[txType] || defaultHandler;
+    const handler = txTypeToHandler[txType] || fallbackHandler;
     if (handler) {
       Array.isArray(handler)
         ? handler.forEach(h => h(state, tx, chainInfo))
