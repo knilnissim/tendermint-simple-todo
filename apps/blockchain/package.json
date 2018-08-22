@@ -6,7 +6,9 @@
   "author": "knil-nissim <knilnissim@gmail.com>",
   "scripts": {
     "start": "ts-node src/app.ts",
-    "lint": "tslint src/*.ts"
+    "lint": "tslint src/*.ts",
+    "tm:init": "./initTendermint.sh",
+    "tm:reset": "./deleteData.sh && npm run tm:init"
   },
   "dependencies": {
     "@types/body-parser": "^1.17.0",

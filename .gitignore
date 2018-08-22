@@ -80,4 +80,7 @@ typings/
 # End of https://www.gitignore.io/api/node
 
 # Blockchain
-keystore/
+.lotion
+data
+genesis.json
+priv_validator.json

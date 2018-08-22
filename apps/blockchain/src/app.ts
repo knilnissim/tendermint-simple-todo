@@ -1,34 +1,19 @@
 import * as path from 'path';
-import { config as envConfig } from 'dotenv';
+// must be called before lotion import
+require('dotenv').config({ path: path.resolve(__dirname, '../.env-node') });
+
 import * as lotion from 'lotion';
 import initialState from './state';
 import txMiddleware from './txMiddleware';
 
-envConfig({ path: path.resolve(__dirname, '../.env-node') });
-
-interface AppInfo {
-  tendermintPort: number;
-  abciPort: number;
-  txServerPort: number;
-  GCI: string;
-  p2pPort: number;
-  lotionPath: string;
-  genesisPath: string;
-  lite: boolean;
-}
+const genesis = path.resolve(__dirname, '../genesis.json');
+const keys = path.resolve(__dirname, '../priv_validator.json');
 
 async function startup() {
-  const app = lotion({
-    initialState,
-    tendermintPort: process.env.TENDERMINT_PORT,
-    logTendermint: true,
-  });
-
+  const app = lotion({ genesis, keys, initialState, devMode: true, logTendermint: true });
   app.use([txMiddleware]);
-
-  const appInfo: AppInfo = await app.listen(process.env.LOTION_APP_PORT);
-  console.log(`App listening on port ${process.env.LOTION_APP_PORT}`);
-  console.log(appInfo);
+  const appInfo = await app.listen(process.env.TX_SERVER_PORT);
+  console.log('AppInfo', JSON.stringify(appInfo, null, 2));
 }
 
 startup();
