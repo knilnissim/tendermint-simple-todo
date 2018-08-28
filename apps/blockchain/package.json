@@ -1,9 +1,9 @@
 {
-  "name": "lotion-simple-todos-blockchain",
+  "name": "lotion-simple-todo-blockchain",
   "version": "1.0.0",
   "main": "src/app.ts",
   "license": "MIT",
-  "author": "knil-nissim <knilnissim@gmail.com>",
+  "author": "knilnissim <knilnissim@gmail.com>",
   "scripts": {
     "start": "ts-node src/app.ts",
     "lint": "tslint src/*.ts",

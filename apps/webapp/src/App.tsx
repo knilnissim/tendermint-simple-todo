@@ -3,11 +3,12 @@ import { render } from 'react-dom';
 import LotionClient from './LotionClient';
 
 class App extends Component {
+  static EMPTY_TITLE = '';
 
   client = new LotionClient();
 
   state = {
-    newItemTitle: '',
+    newItemTitle: App.EMPTY_TITLE,
     items: [],
     loading: false,
   };
@@ -26,14 +27,22 @@ class App extends Component {
   }
 
   add = async (title: string) => {
-    const newItemTitle = '';
+    const newItemTitle = App.EMPTY_TITLE;
     this.startLoading({ newItemTitle });
     await this.client.sendTx('ADD', { title });
     const { items } = await this.client.getState();
     this.completeLoading({ items });
   }
 
-  toggle = async (index: number) => {
+  toggle = async (index: number, completed: boolean) => {
+    this.startLoading();
+    const txType = completed ? 'UNDO-COMPLETE' : 'COMPLETE';
+    await this.client.sendTx(txType, { index });
+    const { items } = await this.client.getState();
+    this.completeLoading({ items });
+  }
+
+  unComplete = async (index: number) => {
     this.startLoading();
     await this.client.sendTx('TOGGLE', { index });
     const { items } = await this.client.getState();
@@ -47,19 +56,18 @@ class App extends Component {
         <h1>Lotion Simple Todo</h1>
         <section>
           <form onSubmit={e => { e.preventDefault(), this.add(newItemTitle); }}>
-            <input type='text' value={newItemTitle} onChange={this.updateNewItemTitle} disabled={loading}/>
-            <input type='submit' value='ADD' disabled={loading}/>
+            <input type='text' value={newItemTitle} onChange={this.updateNewItemTitle} disabled={loading} />
+            <input type='submit' value='ADD' disabled={newItemTitle === App.EMPTY_TITLE || loading} />
           </form>
           <ul>
             {items.map((item, index) => (
               <li key={index}>
                 <div>
-                  <input
-                    type='checkbox'
-                    name='feature'
-                    value={item.title} checked={item.completed}
-                    onChange={() => this.toggle(index)}
-                    disabled={loading}/>
+                  <input type='checkbox'
+                    value={item.title}
+                    checked={item.completed}
+                    onChange={() => this.toggle(index, item.completed)}
+                    disabled={loading} />
                   <label>{item.title}</label>
                 </div>
               </li>

@@ -1,9 +1,9 @@
 {
-  "name": "lotion-simple-todos-webapp",
+  "name": "lotion-simple-todo-webapp",
   "version": "1.0.0",
   "main": "src/index.js",
   "license": "MIT",
-  "author": "knil-nissim <knilnissim@gmail.com>",
+  "author": "knilnissim <knilnissim@gmail.com>",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
