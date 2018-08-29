@@ -53,7 +53,7 @@ class App extends Component {
     const { newItemTitle, items, loading } = this.state;
     return (
       <div>
-        <h1>Lotion Simple Todo</h1>
+        <h1>Tendermint Simple Todo</h1>
         <section>
           <form onSubmit={e => { e.preventDefault(), this.add(newItemTitle); }}>
             <input type='text' value={newItemTitle} onChange={this.updateNewItemTitle} disabled={loading} />

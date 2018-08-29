@@ -1,4 +1,4 @@
-# Lotion Simple Todo Blochchain
+# Tendermint Simple Todo Blochchain
 Todo application-specific blockchain.
 
 ## Getting Started

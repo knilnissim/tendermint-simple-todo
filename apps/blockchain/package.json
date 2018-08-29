@@ -1,5 +1,5 @@
 {
-  "name": "lotion-simple-todo-blockchain",
+  "name": "tendermint-simple-todo-blockchain",
   "version": "1.0.0",
   "main": "src/app.ts",
   "license": "MIT",
