@@ -81,6 +81,9 @@ typings/
 
 # Blockchain
 .lotion
+config
 data
 genesis.json
 priv_validator.json
+node_key.json
+config.toml
