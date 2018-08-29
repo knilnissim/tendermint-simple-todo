@@ -6,8 +6,8 @@ import * as lotion from 'lotion';
 import initialState from './state';
 import { txMiddleware } from './middleware';
 
-const genesis = path.resolve(__dirname, '../genesis.json');
-const keys = path.resolve(__dirname, '../priv_validator.json');
+const genesis = path.resolve(__dirname, '../config/genesis.json');
+const keys = path.resolve(__dirname, '../config/priv_validator.json');
 
 async function startup() {
   const app = lotion({ genesis, keys, initialState, devMode: true, logTendermint: true });

@@ -1,7 +1,4 @@
 #!/bin/bash
 
-# generate files `priv_validator.json`, `genesis.json`, `config.toml`
-TMHOME="$(pwd)" ./node_modules/lotion/bin/tendermint init
-
-# remove config.toml. we will use .env instead
-rm -f ./config.toml
+# generate files into `config` directory
+TMHOME="$(pwd)" ./node_modules/tendermint-node/bin/tendermint init
